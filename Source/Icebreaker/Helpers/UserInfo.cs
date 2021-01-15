@@ -9,6 +9,7 @@ namespace Icebreaker.Helpers
     using System.Collections.Generic;
     using Microsoft.Azure.Documents;
     using Newtonsoft.Json;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Represents a user
@@ -47,7 +48,7 @@ namespace Icebreaker.Helpers
         /// <summary>
         /// Gets or sets a list of recent pairups
         /// </summary>
-        [JsonProperty("recentPairups")]
-        public List<UserInfo> RecentPairUps { get; set; }
+        [JsonProperty("recentPairup")]
+        public ChannelAccount RecentPairUp { get; set; }
     }
 }
