@@ -236,6 +236,11 @@ namespace Icebreaker.Helpers
             }
         }
 
+        public async int test()
+        {
+            return 3;
+        }
+
         /// <summary>
         /// Set the user info for the given user
         /// </summary>

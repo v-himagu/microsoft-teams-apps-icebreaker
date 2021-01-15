@@ -82,12 +82,13 @@ namespace Icebreaker.Services
                 var dbMembersLookup = await this.dataProvider.GetAllUsersOptInStatusAsync();
                 dbMembersCount = dbMembersLookup.Count;
                 
-                var dbMembersRecentLookup = await this.dataProvider.GetAllUsersRecentPairAsync(); //user id (string) -> user id
+                var dbMembersRecentLookup = await this.dataProvider.test(); //user id (string) -> user id
+                this.telemetryClient.TrackTrace($"number: {dbMembersRecentLookup}");
 
                 foreach (var team in teams)
                 {
                     this.telemetryClient.TrackTrace($"Pairing members of team {team.Id}");
-
+                    
                     try
                     {
                         var teamName = await this.conversationHelper.GetTeamNameByIdAsync(this.botAdapter, team);
