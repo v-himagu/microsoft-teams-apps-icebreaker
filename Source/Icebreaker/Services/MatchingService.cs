@@ -81,6 +81,8 @@ namespace Icebreaker.Services
                 // Fetch all db users opt-in status/lookup
                 var dbMembersLookup = await this.dataProvider.GetAllUsersOptInStatusAsync();
                 dbMembersCount = dbMembersLookup.Count;
+                
+                var dbMembersRecentLookup = await this.dataProvider.GetAllUsersRecentPairAsync(); //user id (string) -> user id
 
                 foreach (var team in teams)
                 {
