@@ -43,18 +43,6 @@ namespace Icebreaker.Helpers
         [JsonProperty("installerName")]
         public string InstallerName { get; set; }
 
-        /// <summary>
-        /// Gets or sets recent matches
-        /// </summary>
-        [JsonProperty("recentMatches")]
-        public string[,] RecentMatches { get; set; }
-
-        /// <summary>
-        /// Gets or sets last unmatched user
-        /// </summary>
-        [JsonProperty("lastUnmatchedUser")]
-        public string UnmatchedUser { get; set; }
-
         /// <inheritdoc/>
         public override string ToString()
         {
