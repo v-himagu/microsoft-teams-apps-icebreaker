@@ -195,7 +195,6 @@ namespace Icebreaker.Services
             if (users.Count > 1)
             {
                 this.telemetryClient.TrackTrace($"Making {users.Count / 2} pairs among {users.Count} users");
-                this.telemetryClient.TrackTrace(users[0]);
             }
             else
             {
