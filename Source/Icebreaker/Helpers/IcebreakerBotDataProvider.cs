@@ -142,7 +142,7 @@ namespace Icebreaker.Helpers
         }
 
         /// <summary>
-        /// Get the stored information about given users
+        /// Get the stored opt-in information about given users
         /// </summary>
         /// <returns>User information</returns>
         public async Task<Dictionary<string, bool>> GetAllUsersOptInStatusAsync()
@@ -189,6 +189,55 @@ namespace Icebreaker.Helpers
         }
 
         /// <summary>
+        /// Get the stored information about given users
+        /// </summary>
+        /// <returns>User information</returns>
+        public async Task<Dictionary> GetAllUsersRecentPairUpsAsync()
+        {
+            await this.EnsureInitializedAsync();
+
+            try
+            {
+                var collectionLink = UriFactory.CreateDocumentCollectionUri(this.database.Id, this.usersCollection.Id);
+                var query = this.documentClient.CreateDocumentQuery<UserInfo>(
+                        collectionLink,
+#pragma warning disable SA1118 // Parameter must not span multiple lines
+                        new FeedOptions
+                        {
+                            EnableCrossPartitionQuery = true,
+
+                            // Fetch items in bulk according to DB engine capability
+                            MaxItemCount = -1,
+
+                            // Max partition to query at a time
+                            MaxDegreeOfParallelism = -1
+                        })
+#pragma warning restore SA1118 // Parameter must not span multiple lines
+                    .Select(u => new UserInfo { Id = u.Id,  RecentPairUps = u.RecentPairUps })
+                    .AsDocumentQuery();
+
+                // FIX THIS
+                var usersRecentPairUpsLookup = new Dictionary<string, string>();
+                while (query.HasMoreResults)
+                {
+                    // Note that ExecuteNextAsync can return many records in each call
+                    var responseBatch = await query.ExecuteNextAsync<UserInfo>();
+                    foreach (var userInfo in responseBatch)
+                    {
+                        usersRecentPairUpsLookup.Add(userInfo.Id, userInfo.RecentPairUps);
+                    }
+                }
+
+                return usersRecentPairUpsLookup;
+            }
+            catch (Exception ex)
+            {
+                this.telemetryClient.TrackException(ex.InnerException);
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Set the user info for the given user
         /// </summary>
         /// <param name="tenantId">Tenant id</param>
@@ -196,7 +245,7 @@ namespace Icebreaker.Helpers
         /// <param name="optedIn">User opt-in status</param>
         /// <param name="serviceUrl">User service URL</param>
         /// <returns>Tracking task</returns>
-        public async Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl)
+        public async Task SetUserInfoAsync(string tenantId, string userId, bool optedIn, string serviceUrl, string[] recentPairUps)
         {
             await this.EnsureInitializedAsync();
 
@@ -206,6 +255,7 @@ namespace Icebreaker.Helpers
                 UserId = userId,
                 OptedIn = optedIn,
                 ServiceUrl = serviceUrl
+                RecentPairUps = recentPairUps
             };
             await this.documentClient.UpsertDocumentAsync(this.usersCollection.SelfLink, userInfo);
         }
