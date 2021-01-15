@@ -17,6 +17,7 @@ namespace Icebreaker.Helpers
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
+    using Microsoft.Bot.Schema;
 
     /// <summary>
     /// Data provider routines
@@ -180,6 +181,53 @@ namespace Icebreaker.Helpers
                 }
 
                 return usersOptInStatusLookup;
+            }
+            catch (Exception ex)
+            {
+                this.telemetryClient.TrackException(ex.InnerException);
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Get the stored information about given users (recent match)
+        /// </summary>
+        /// <returns>User information</returns>
+        public async Task<Dictionary<string, ChannelAccount>> GetAllUsersRecentPairAsync()
+        {
+            await this.EnsureInitializedAsync();
+
+            try
+            {
+                var collectionLink = UriFactory.CreateDocumentCollectionUri(this.database.Id, this.usersCollection.Id);
+                var query = this.documentClient.CreateDocumentQuery<UserInfo>(
+                        collectionLink,
+#pragma warning disable SA1118 // Parameter must not span multiple lines
+                        new FeedOptions
+                        {
+                            EnableCrossPartitionQuery = true,
+
+                            // Fetch items in bulk according to DB engine capability
+                            MaxItemCount = -1,
+
+                            // Max partition to query at a time
+                            MaxDegreeOfParallelism = -1
+                        })
+#pragma warning restore SA1118 // Parameter must not span multiple lines
+                    .Select(u => new UserInfo { Id = u.Id, OptedIn = u.OptedIn })
+                    .AsDocumentQuery();
+                var usersRecentPairLookup = new Dictionary<string, ChannelAccount>();
+                while (query.HasMoreResults)
+                {
+                    // Note that ExecuteNextAsync can return many records in each call
+                    var responseBatch = await query.ExecuteNextAsync<UserInfo>();
+                    foreach (var userInfo in responseBatch)
+                    {
+                        usersRecentPairLookup.Add(userInfo.Id, userInfo.RecentPairUp);
+                    }
+                }
+
+                return usersRecentPairLookup;
             }
             catch (Exception ex)
             {
