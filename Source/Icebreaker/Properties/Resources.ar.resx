@@ -118,135 +118,139 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackButtonText" xml:space="preserve">
-    <value>Back</value>
+    <value>عودة</value>
     <comment>This is the back button text</comment>
   </data>
   <data name="ChatWithMatchButtonText" xml:space="preserve">
-    <value>Chat with {0}</value>
+    <value>الدردشة مع {0}</value>
+    <comment>Button text to initiate a chat with the person the user has been matched up with</comment>
+  </data>
+  <data name="ChatWithMatchButtonText1" xml:space="preserve">
+    <value>الدردشة مع {0}</value>
     <comment>Button text to initiate a chat with the person the user has been matched up with</comment>
   </data>
   <data name="ChatWithMessageGreeting" xml:space="preserve">
-    <value>Hi%20there%20</value>
+    <value>مرحبًا٪ 20there٪ 20</value>
     <comment>This is the greeting of the chat with matched member message</comment>
   </data>
   <data name="DoneButtonText" xml:space="preserve">
-    <value>Done</value>
+    <value>منجز</value>
     <comment>This is the done button text</comment>
   </data>
   <data name="ErrorOccured" xml:space="preserve">
-    <value>There was an error while processing request. Retry?</value>
+    <value>حدث خطأ أثناء معالجة الطلب. إعادة المحاولة؟</value>
     <comment>A generic message that is sent when there is an error occurring</comment>
   </data>
   <data name="InstallMessageKnownInstallerPart1" xml:space="preserve">
-    <value>If you're reading this, it's most likely because {0} added me to the **{1} Team.**</value>
+    <value>إذا كنت تقرأ هذا ، فمن الأرجح أن {0} أضافني إلى ** {1} الفريق. **</value>
     <comment>Install message and also the welcome message when the app installer is known - {0} is the placeholder for the name of the user that has installed the app to the team, and {1} is the placeholder for the name of the team that the app has been installed to</comment>
   </data>
   <data name="InstallMessageKnownInstallerPart2" xml:space="preserve">
-    <value>I get to help you meet more people around your organization by randomly pairing you with someone new every week. You get to make more friends and learn about the people you work with. It's a win-win-*win* situation.</value>
+    <value>يمكنني مساعدتك في مقابلة المزيد من الأشخاص حول مؤسستك عن طريق إقرانك بشكل عشوائي بشخص جديد كل أسبوع. يمكنك تكوين صداقات أكثر والتعرف على الأشخاص الذين تعمل معهم. إنه وضع يربح فيه الجميع.</value>
     <comment>Part 2 of the install message when the name of the installer is known</comment>
   </data>
   <data name="InstallMessageKnownInstallerPart3" xml:space="preserve">
-    <value>**To meet new people, just hang tight. I'll send you an invite soon.**</value>
+    <value>**لمقابلة أشخاص جدد ، فقط انتظر. سأرسل لك دعوة قريبًا.**</value>
     <comment>Part 3 of the install message with the name of the installer known</comment>
   </data>
   <data name="InstallMessageUnknownInstallerPart1" xml:space="preserve">
-    <value>If you're reading this, it's because I was installed to **{0} Team.** </value>
+    <value>إذا كنت تقرأ هذا ، فذلك لأنني قد تم تثبيتي في **{0} Team.**</value>
     <comment>Install message and also the welcome message when the app installer is not known - {0} is the placeholder for the name of the team that the app has been installed to</comment>
   </data>
   <data name="InstallMessageUnknownInstallerPart2" xml:space="preserve">
-    <value>I get to help you meet more people around your organization by randomly pairing you with someone new every week. You get to make more friends and learn about the people you work with. It's a win-win-*win* situation.</value>
+    <value>يمكنني مساعدتك في مقابلة المزيد من الأشخاص حول مؤسستك عن طريق إقرانك بشكل عشوائي بشخص جديد كل أسبوع. يمكنك تكوين صداقات أكثر والتعرف على الأشخاص الذين تعمل معهم. إنه وضع يربح فيه الجميع.</value>
     <comment>Part 2 of the install message when the name of the installer is not known</comment>
   </data>
   <data name="InstallMessageUnknownInstallerPart3" xml:space="preserve">
-    <value>**To meet new people, just hang tight. I'll send you an invite soon.**</value>
+    <value>**لمقابلة أشخاص جدد ، فقط انتظر. سأرسل لك دعوة قريبًا.**</value>
     <comment>Part 3 of the install message when the name of the installer is not known</comment>
   </data>
   <data name="MatchUpCardContentPart1" xml:space="preserve">
-    <value>Hi there again, I'm {0} in {1}. A bot that pairs you with a new coworker to meet each week. This week your match is {2}.</value>
+    <value>مرحبًا بكم مرة أخرى ، أنا {0} في {1}. روبوت يجمعك بزميل جديد في العمل لتلتقي به كل أسبوع. ستقام مباراتك هذا الأسبوع {2}.</value>
     <comment>First part of the match up card main content</comment>
   </data>
   <data name="MatchUpCardContentPart2" xml:space="preserve">
-    <value>If you've got the inclination, set something up. See, meeting people *is* easy!</value>
+    <value>إذا كانت لديك الرغبة ، فقم بإعداد شيء ما. انظر ، لقاء الناس * سهل!</value>
     <comment>Second part of the match up card main content</comment>
   </data>
   <data name="MatchUpCardMatchedText" xml:space="preserve">
-    <value>You've been matched with {0}.</value>
+    <value>لقد تم التطابق مع {0}.</value>
     <comment>The text saying who the user has been matched up with</comment>
   </data>
   <data name="MatchUpCardTitleContent" xml:space="preserve">
-    <value>It's time for a match!</value>
+    <value>حان الوقت للمباراة!</value>
     <comment>The title text for the pairup notification adaptive card</comment>
   </data>
   <data name="MeetupContent" xml:space="preserve">
-    <value>Hey there, looks like we've been matched by {0} this week. It'd be great to meet up for a coffee or a lunch or a call if you've got time.</value>
+    <value>مرحبًا بكم ، يبدو أن {0} مطابقًا لنا هذا الأسبوع. سيكون من الرائع الالتقاء لتناول القهوة أو الغداء أو مكالمة إذا كان لديك وقت.</value>
     <comment>Content of the Meetup for the propose meeting</comment>
   </data>
   <data name="MeetupTitle" xml:space="preserve">
-    <value>{0} / {1} Meet up</value>
+    <value>{0} / {1} لقاء</value>
     <comment>The title for the Meetup - {0} is the name of the first person that user has been matched with and {1} is the name of the user</comment>
   </data>
   <data name="NextButtonText" xml:space="preserve">
-    <value>Next</value>
+    <value>التالى</value>
     <comment>This is the next button text</comment>
   </data>
   <data name="OptInConfirmation" xml:space="preserve">
-    <value>Welcome back! You've been missed. I've restarted your matches. Have fun!</value>
+    <value>مرحبا بعودتك! لقد فاتك. لقد أعدت تشغيل المباريات الخاصة بك. إستمتع!</value>
     <comment>The confirmation reply that is sent when the user resumes the matches</comment>
   </data>
   <data name="OptOutConfirmation" xml:space="preserve">
-    <value>All set. I've paused your matches. You can turn them back on whenever you like.</value>
+    <value>كل مجموعة. لقد أوقفت مبارياتك مؤقتًا. يمكنك إعادة تشغيلها متى شئت.</value>
     <comment>The confirmation reply that is sent when the user pauses all matches</comment>
   </data>
   <data name="PausePairingsButtonText" xml:space="preserve">
-    <value>Pause all matches</value>
+    <value>وقفة كل المباريات</value>
     <comment>Button text to pause pairings</comment>
   </data>
   <data name="ProposeMeetupButtonText" xml:space="preserve">
-    <value>Propose meetup</value>
+    <value>اقتراح لقاء</value>
     <comment>Button text to propose the meetup with the match of the user</comment>
   </data>
   <data name="ResumePairingsButtonText" xml:space="preserve">
-    <value>Resume matches</value>
+    <value>استئناف المباريات</value>
     <comment>Button text to resume pairings</comment>
   </data>
   <data name="SalutationTitleText" xml:space="preserve">
-    <value>Hi there!</value>
+    <value>مرحبا!</value>
     <comment>This is the text for the salutation in the adaptive cards when the bot is installed to a team and also when new users are added to the team</comment>
   </data>
   <data name="TakeATourButtonText" xml:space="preserve">
-    <value>Take a tour</value>
+    <value>خذ جولة</value>
     <comment>The text for the button which launches a tour when clicked</comment>
   </data>
   <data name="TourContentPageTitleText" xml:space="preserve">
-    <value>Tour</value>
+    <value>جولة</value>
     <comment>This is the tour content page title text</comment>
   </data>
   <data name="TourMatchesBodyText" xml:space="preserve">
-    <value>Pause matches whenever you need. Too busy that week? Out of the office? No problem. Just click the button at anytime.</value>
+    <value>وقفة المباريات كلما احتجت. مشغول جدا هذا الأسبوع؟ خارج المكتب؟ ليس هناك أى مشكلة. فقط انقر فوق الزر في أي وقت.</value>
     <comment>This is the tour match task module body text</comment>
   </data>
   <data name="TourMatchesHeaderText" xml:space="preserve">
-    <value>Easily pause matches as needed</value>
+    <value>يمكنك إيقاف المباريات مؤقتًا بسهولة حسب الحاجة</value>
     <comment>This is the tour match task module header text</comment>
   </data>
   <data name="TourWelcomeBodyText" xml:space="preserve">
-    <value>Every week, I'll pair you with someone new. If you have the inclination that week, you can meet up--grab a lunch, or a call if you're in different locations. Look out for another message in which I'll pair you with your first match.</value>
+    <value>كل أسبوع ، سوف أقوم بإقرانك بشخص جديد. إذا كانت لديك الرغبة في ذلك الأسبوع ، فيمكنك الالتقاء - تناول غداء أو مكالمة إذا كنت في مواقع مختلفة. ابحث عن رسالة أخرى سأقوم فيها بإقرانك بمطابقتك الأولى.</value>
     <comment>This is the tour welcome body text</comment>
   </data>
   <data name="TourWelcomeHeaderText" xml:space="preserve">
-    <value>Make new friends and build community with them</value>
+    <value>تكوين صداقات جديدة وبناء مجتمع معهم</value>
     <comment>This is the tour welcome header text</comment>
   </data>
   <data name="TourWelcomeImageAltText" xml:space="preserve">
-    <value>Welcome image</value>
+    <value>مرحبا الصورة</value>
     <comment>This is the tour welcome image alt text</comment>
   </data>
   <data name="UnrecognizedInput" xml:space="preserve">
-    <value>I'm sorry, but I can't process the incoming message. You can take a tour, though, to learn more about my functionality.</value>
+    <value>أنا آسف ، لكن لا يمكنني معالجة الرسالة الواردة. ومع ذلك ، يمكنك القيام بجولة لمعرفة المزيد عن وظائفي.</value>
     <comment>The text for the unrecognized input scenario</comment>
   </data>
   <data name="WelcomeTourTitle" xml:space="preserve">
-    <value>Tour</value>
+    <value>جولة</value>
     <comment>This is the title of the tour for the Icebreaker Bot</comment>
   </data>
 </root>
