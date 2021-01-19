@@ -4,10 +4,12 @@
 
 namespace Icebreaker
 {
+    using System.Globalization;
     using System.Reflection;
     using System.Web.Http;
     using Autofac;
     using Autofac.Integration.WebApi;
+    using Microsoft.Azure;
     using Microsoft.Bot.Builder.Dialogs;
 
 #pragma warning disable SA1649 // File name must match first type name
@@ -27,6 +29,8 @@ namespace Icebreaker
                    builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
                });
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.DefaultThreadCurrentUICulture =
+                new CultureInfo(CloudConfigurationManager.GetSetting("DefaultLocale"));
         }
     }
 }
