@@ -36,7 +36,7 @@
         "appIconUrl": {
             "type": "string",
             "minLength": 1,
-            "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-icebreaker-app/main/Manifest/color.png",
+            "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-icebreaker-app/master/Manifest/color.png",
             "metadata": {
                 "description": "The link to the icon for the bot. It must resolve to a PNG file."
             }
@@ -159,11 +159,25 @@
         "gitBranch": {
             "type": "string",
             "minLength": 1,
-            "defaultValue": "main",
+            "defaultValue": "master",
             "metadata": {
               "description": "The branch of the GitHub repository to deploy."
             }
+        },
+      "defaultLocale": {
+        "type": "string",
+        "allowedValues": [
+          "en",
+          "fr",
+          "es",
+          "ar",
+          "ja"
+        ],
+        "defaultValue": "en",
+        "metadata": {
+          "description": "Default culture locale used by application to show localized content."
         }
+      }
     },
     "variables": {
         "baseResourceName": "[toLower(parameters('appName'))]",
@@ -317,8 +331,12 @@
                             "value": "[variables('appServiceBaseDomain')]"
                         },
                         {
-                            "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                            "value": "8.9.4"
+                          "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                          "value": "8.9.4"
+                        },
+                        {
+                          "name": "DefaultLocale",
+                          "value": "[parameters('defaultLocale')]"
                         }
                     ]
                 },
