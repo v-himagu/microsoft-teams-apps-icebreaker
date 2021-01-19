@@ -45,7 +45,7 @@ namespace Icebreaker
         /// </summary>
         /// <param name="activity">The incoming activity</param>
         /// <returns>Task that resolves to the HTTP response message</returns>
-        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
+        public async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
             this.LogActivityTelemetry(activity);
 
