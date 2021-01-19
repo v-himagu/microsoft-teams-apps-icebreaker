@@ -33,10 +33,10 @@ namespace Icebreaker.Helpers.AdaptiveCards
         {
             var messageContent = Resources.UnrecognizedInput;
             var baseDomain = CloudConfigurationManager.GetSetting("AppBaseDomain");
-            var htmlUrl = Uri.EscapeDataString($"https://{baseDomain}/Content/tour.html?theme={{theme}}");
+            var htmlUrl = Uri.EscapeDataString($"https://{baseDomain}/Content/taketour.cshtml?theme={{theme}}");
             var tourTitle = Resources.WelcomeTourTitle;
             var appId = CloudConfigurationManager.GetSetting("ManifestAppId");
-            var tourUrl = $"https://teams.microsoft.com/l/task/{appId}?url={htmlUrl}&height=533px&width=600px&title={tourTitle}";
+            var tourUrl = $"https://teams.microsoft.com/l/task/{appId}?url={htmlUrl}&height=533px&width=600px";
             var tourButtonText = Resources.TakeATourButtonText;
 
             var variablesToValues = new Dictionary<string, string>()
